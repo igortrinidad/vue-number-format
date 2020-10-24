@@ -24,8 +24,16 @@
   height: 100%;
 }
 
+body {
+  font-family: Montserrat,Roboto,"Helvetica Neue",Arial,sans-serif;
+  margin:0;
+  line-height: 1.5;
+  overflow-y: auto;
+}
+
 body *{
-	letter-spacing: 0.8px !important;
+  letter-spacing: 0.8px !important;
+  
 }
 .text-center {
 	text-align: center !important;
@@ -70,3 +78,5 @@ h4, .h4 {
 p{
 	font-size: 1em;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,700&display=swap');

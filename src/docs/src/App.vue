@@ -3,20 +3,20 @@
     <div class="max-w-lg">
       <div class="w-full flex flex-wrap  text-lg p-4 md:p-6">
         <div class="h-1/3 w-full flex items-end">
-          <h1 class="w-full text-white text-center">vue-number-format</h1>
+          <h1 class="w-full text-white text-center font-medium">vue-number-format</h1>
         </div>
         <!-- US DOLLAR -->
         <div class="w-full my-8">
           <VueNumberFormat class="w-full text-lg p-4 focus:outline-none focus:shadow-md focus:border-blue" v-model:value="us" :options="{ precision: 2, decimal: '.', thousand: ',' }"></VueNumberFormat>
           <div class="w-full flex p-2 justify-center">
-            <div class="w-2/5 text-center">
+            <div class="w-2/5 text-right">
               <h4>{{us}}</h4>
               <p class="text-xs">output</p>
             </div>
             <div class="w-1/5 flex justify-center p-3 items-center">
               <div class="vertical-divider bg-black"></div>
             </div>
-            <div class="w-2/5 text-center">
+            <div class="w-2/5 text-left">
               <h4>{{typeof(us)}}</h4>
               <p class="text-xs">typeof</p>
             </div>
@@ -27,14 +27,14 @@
         <div class="w-full my-8">
           <VueNumberFormat class="w-full text-lg p-4 focus:outline-none focus:shadow-md focus:border-blue" v-model:value="integer" :options="{ precision: 2, prefix: 'R$ ', isInteger: true }"></VueNumberFormat>
           <div class="w-full flex p-2 justify-center">
-            <div class="w-2/5 text-center">
+            <div class="w-2/5 text-right">
               <h4>{{integer}}</h4>
               <p class="text-xs">output</p>
             </div>
             <div class="w-1/5 flex justify-center p-3 items-center">
               <div class="vertical-divider bg-black"></div>
             </div>
-            <div class="w-2/5 text-center">
+            <div class="w-2/5 text-left">
               <h4>{{typeof(integer)}}</h4>
               <p class="text-xs">typeof</p>
             </div>

@@ -37,8 +37,8 @@ module.exports = {
 
       fontWeight: {
           'thin': 100,
-          'normal': 200,
-          'medium': 400,
+          'normal': 300,
+          'medium': 500,
           'bold': 700,
       },
 
