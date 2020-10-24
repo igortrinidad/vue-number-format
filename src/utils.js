@@ -12,6 +12,10 @@
 import defaultOptions from './defaultOptions'
 
 export const format = (input, opt = defaultOptions) => {
+
+  if (typeof input === 'number' && !opt.isInteger) {
+    input = input.toFixed(fixed(opt.precision))
+  }
   const negative = isNegative(input)  ? '-' : ''
   const numbers = onlyNumbers(input)
   const currency = numbersToCurrency(numbers, opt)

@@ -1619,12 +1619,12 @@ module.exports = function (it) {
 
 "use strict";
 
-// CONCATENATED MODULE: /home/igortrindade/.nvm/versions/node/v12.18.1/lib/node_modules/@vue/cli-service-global/node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"72bed79c-vue-loader-template"}!/home/igortrindade/.nvm/versions/node/v12.18.1/lib/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/home/igortrindade/.nvm/versions/node/v12.18.1/lib/node_modules/@vue/cli-service-global/node_modules/cache-loader/dist/cjs.js??ref--0-0!/home/igortrindade/.nvm/versions/node/v12.18.1/lib/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib??vue-loader-options!./src/vue-number-format.vue?vue&type=template&id=ceb62386&
+// CONCATENATED MODULE: /home/igortrindade/.nvm/versions/node/v12.18.1/lib/node_modules/@vue/cli-service-global/node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"72bed79c-vue-loader-template"}!/home/igortrindade/.nvm/versions/node/v12.18.1/lib/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/home/igortrindade/.nvm/versions/node/v12.18.1/lib/node_modules/@vue/cli-service-global/node_modules/cache-loader/dist/cjs.js??ref--0-0!/home/igortrindade/.nvm/versions/node/v12.18.1/lib/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib??vue-loader-options!./src/vue-number-format.vue?vue&type=template&id=74e54272&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('input',{attrs:{"type":"tel"},domProps:{"value":_vm.formattedValue},on:{"input":function($event){return _vm.onInput($event)},"focus":function($event){return _vm.onFocus($event)}}})}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/vue-number-format.vue?vue&type=template&id=ceb62386&
+// CONCATENATED MODULE: ./src/vue-number-format.vue?vue&type=template&id=74e54272&
 
 // EXTERNAL MODULE: /home/igortrindade/.nvm/versions/node/v12.18.1/lib/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("8650");
@@ -1808,6 +1808,8 @@ function isNegative(string) {
   },
   computed: {
     mergedOptions: function mergedOptions() {
+      console.log('foi');
+
       if (this.options) {
         return Object.assign({}, this.$vueNumberFormatOptions, this.options);
       }
