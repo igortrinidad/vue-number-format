@@ -1,0 +1,20 @@
+{
+  "name": "vue-number-format",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "vue build --target lib --name VueNumberFormat ./src/index.js"
+  },
+  "author": "Igor Trindade",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "rollup": "^1.17.0",
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
