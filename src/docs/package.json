@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "vue-number-format-docs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,8 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "tailwindcss": "^1.9.6",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-number-format": "^1.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

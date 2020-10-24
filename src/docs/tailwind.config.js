@@ -47,7 +47,8 @@ module.exports = {
           top: '-4px -4px 8px 0px rgba(47, 49, 82, 0.15)',
           default: '3px 3px 10px 0px rgba(47, 49, 82, 0.15)',
           md: '4px 4px 40px 0px rgba(47, 49, 82, 0.25)',
-          lg: '4px 4px 60px 0px rgba(47, 49, 82, 0.35)'
+          lg: '4px 4px 60px 0px rgba(47, 49, 82, 0.35)',
+          outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
       },
 
       screens: {
@@ -220,7 +221,9 @@ module.exports = {
       borderColor: ['responsive', 'hover', 'focus', 'group-hover'],
       border: ['responsive', 'hover', 'focus', 'even'],
       backgroundColor: ['responsive', 'hover', 'active', 'focus', 'group-hover'],
-      textColor: ['responsive', 'hover', 'focus', 'group-hover']
+      textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+      outline: ['responsive', 'focus', 'hover', 'active'],
+      boxShadow: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
   },
   purge: false,
 }
