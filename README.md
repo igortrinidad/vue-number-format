@@ -1,7 +1,5 @@
-
-<p align="center">
-  <a href="https://vuejs.org" target="_blank" rel="noopener noreferrer">vue-number-format</a>
-</p>
+<h1 align="center">vue-number-format</h1>
+ 
 <p align="center">
   A lightweight flexible Vue.js 2 and 3 component to display and input formatted numbers and currencies
 </p>
@@ -120,4 +118,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   - Initial release.
   - Added Jest - tests
   - Added tests for format and unformat functions
+  
   
