@@ -7,7 +7,9 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "clipboard": "^2.0.6",
     "core-js": "^3.6.5",
+    "prismjs": "^1.22.0",
     "tailwindcss": "^1.9.6",
     "vue": "^3.0.0",
     "vue-number-format": "file:../.."

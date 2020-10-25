@@ -4,6 +4,7 @@ export const defaultOptions = {
   decimal: ',',
   thousand: '.',
   precision: 2,
+  acceptNegative: true,
   isInteger: false
 }
 

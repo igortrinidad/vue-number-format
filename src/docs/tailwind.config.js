@@ -2,7 +2,7 @@
 module.exports = {
   theme: {
       colors: {
-          'black': '#352D2A',
+          'black': '#272822',
           'white': '#FFFFFF',
           'purple': '#834CD8',
           'blue': '#0099F7',
@@ -43,10 +43,10 @@ module.exports = {
       },
 
       boxShadow: {
-          sm: '2px 2px 6px 0px rgba(47, 49, 82, 0.15)',
-          top: '-4px -4px 8px 0px rgba(47, 49, 82, 0.15)',
-          default: '3px 3px 10px 0px rgba(47, 49, 82, 0.15)',
-          md: '4px 4px 40px 0px rgba(47, 49, 82, 0.25)',
+          sm: '2px 2px 6px 0px rgba(47, 49, 82, 0.35)',
+          top: '-4px -4px 8px 0px rgba(47, 49, 82, 0.35)',
+          default: '3px 3px 10px 0px rgba(47, 49, 82, 0.35)',
+          md: '4px 4px 40px 0px rgba(47, 49, 82, 0.35)',
           lg: '4px 4px 60px 0px rgba(47, 49, 82, 0.35)',
           outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
       },

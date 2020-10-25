@@ -12,13 +12,12 @@
 import defaultOptions from './defaultOptions'
 
 export const format = (input, opt = defaultOptions) => {
-
   if (typeof input === 'number' && !opt.isInteger) {
     input = input.toFixed(fixed(opt.precision))
   }
-  const negative = isNegative(input)  ? '-' : ''
+  const negative = isNegative(input, opt.acceptNegative)  ? '-' : ''
   const numbers = onlyNumbers(input)
-  const currency = numbersToCurrency(numbers, opt)
+  const currency = numbersToCurrency(numbers, opt.precision)
   const parts = toStr(currency).split('.')
   var integer = parts[0]
   const decimal = parts[1]
@@ -26,13 +25,13 @@ export const format = (input, opt = defaultOptions) => {
   return negative + opt.prefix + joinIntegerAndDecimal(integer, decimal, opt.decimal) + opt.suffix
 }
 
-export const unformat = (input, opt = defaultOptions) => {
-  var negative = (isNegative(input)) ? -1 : 1
+export const unformat = (input, opt = { precision: 2, isInteger: false, acceptNegative: true}) => {
+  var negative = (isNegative(input, opt.acceptNegative)) ? -1 : 1
   var numbers = onlyNumbers(input)
-  var currency = numbersToCurrency(numbers, opt)
+  var currency = numbersToCurrency(numbers, opt.precision)
 
   if(opt.isInteger) {
-    return parseInt(`${isNegative(input) ? '-' : ''}${numbers.toString()}`)
+    return parseInt(`${isNegative(input, opt.acceptNegative) ? '-' : ''}${numbers.toString()}`)
   }
   return parseFloat(currency) * negative
 }
@@ -63,10 +62,10 @@ function fixed (precision) {
   return Math.max(0, Math.min(precision, 20))
 }
 
-function numbersToCurrency (numbers, opt = defaultOptions) {
-  var exp = Math.pow(10, opt.precision)
+function numbersToCurrency (numbers, precision) {
+  var exp = Math.pow(10, precision)
   var float = parseFloat(numbers) / exp
-  return float.toFixed(fixed(opt.precision))
+  return float.toFixed(fixed(precision))
 }
 
 function addThousandSeparator (integer, separator) {
@@ -81,7 +80,8 @@ function toStr (value) {
   return value ? value.toString() : ''
 }
 
-function isNegative(string) {
+function isNegative(string, acceptNegative = true) {
+  if(!acceptNegative) return false
   if (typeof string != 'string') string = string.toString()
   const forcePositive = string.indexOf('+') >= 0
   const isNegative = (string !== 0 && string.indexOf('-') >= 0 || string[string.length-1] == '-') ? true : false

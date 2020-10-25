@@ -1,11 +1,13 @@
 /*global global */
 import VueNumberFormat from './vue-number-format.vue';
 import defaultOptions from './defaultOptions'
+import { format, unformat } from './utils'
 
 // Declare install function executed by Vue.use()
 const install = (Vue, options) => {
 	if (install.installed) return;
-	install.installed = true;
+  install.installed = true;
+  
   Vue.component('VueNumberFormat', VueNumberFormat);
 
   const mergedOptions = Object.assign({}, defaultOptions, options)
@@ -19,7 +21,19 @@ const install = (Vue, options) => {
     Vue.config.globalProperties.$vueNumberFormatOptions = mergedOptions
   }
 
-  //Both ways could 
+  Vue.mixin({
+    methods: {
+      vueNumberFormat(value, options = mergedOptions) {
+        const fnMergedOptions = Object.assign({}, defaultOptions, options)
+        return format(value, fnMergedOptions)
+      },
+      vueNumberUnformat(value, options = mergedOptions) {
+        const fnMergedOptions = Object.assign({}, defaultOptions, options)
+        return unformat(value, fnMergedOptions)
+      },
+    }
+  })
+
 }
 
 Object.assign(VueNumberFormat, {install: install})

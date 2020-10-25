@@ -50,13 +50,13 @@ export default {
 
     onInput($event) {
       setCursorPosition($event.target, this.mergedOptions)
-      this.updateValue($event.target.value)
+      const value = unformat($event.target.value, this.mergedOptions)
+      this.updateValue(value)
     },
 
-    updateValue(string) {
-      const unformattedString = unformat(string, this.mergedOptions)
-      this.$emit('update:value', unformattedString)
-      this.$emit('input', unformattedString)
+    updateValue(value) {
+      this.$emit('update:value', value)
+      this.$emit('input', value)
     },
 
     setCursor(element, position) {
