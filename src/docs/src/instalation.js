@@ -103,6 +103,9 @@ export default [
       return normalizer.normalize(`
         {{vueNumberFormat(275, {})}}
         <!-- display US$275.00 -->
+        <!-- Available only within global instalation -->
+        <!-- use like a component method -->
+        <!-- Filters are removed from Vue 3.0 and no longer supported: https://v3.vuejs.org/guide/migration/filters.html-->
       `)
     },
     tips: 'Available only within global instalation'
@@ -114,6 +117,9 @@ export default [
       return normalizer.normalize(`
         {{vueNumberUnformat('R$275,00', {})}}
         <!-- display 275 -->
+        <!-- Available only within global instalation -->
+        <!-- use like a component method -->
+        <!-- Filters are removed from Vue 3.0 and no longer supported: https://v3.vuejs.org/guide/migration/filters.html-->
       `)
     },
     tips: 'Available only within global instalation'

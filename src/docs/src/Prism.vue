@@ -1,6 +1,6 @@
 <template>
 <div class="w-full flex flex-col items-end">
-  <button ref="copy" @click="copyCode()" class="bg-black rounded text-center text-white p-2 text-xs -mb-12 focus:outline-none z-10">
+  <button ref="copy" class="bg-black text-center text-white p-2 text-xs -mb-12 focus:outline-none z-10">
     <span v-if="!isCopied">copy</span>
     <span v-else class="font-bold text-green">copied ✓</span>
   </button>
@@ -26,19 +26,27 @@ export default {
   },
   data() {
     return {
-      isCopied: false
+      isCopied: false,
+      clipboard: null
     }
   },
+  mounted() {
+    new ClipboardJS(this.$refs.copy, {
+      text: (trigger) => {
+        this.isCopied = true
+        setTimeout(() => { this.isCopied = false }, 2000)
+        return this.code
+      }
+  })
+  },
   methods: {
-    copyCode() {
-      new ClipboardJS(this.$refs.copy, {
-          text: (trigger) => {
-            this.isCopied = true
-            setTimeout(() => { this.isCopied = false }, 2000)
-            return this.code
-          }
-      })
-    }
+
   }
 }
 </script>
+
+<style>
+  pre {
+    border-radius: 0px !important;
+  }
+</style>

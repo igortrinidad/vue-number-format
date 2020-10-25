@@ -1,6 +1,6 @@
 <template>
   <div class="w-full mt-2 mb-6 p-1">
-    <h3 class="w-full">{{example.title}}</h3>
+    <h3 class="mb-2"><span class="border-b-4 border-green">{{example.title}}</span></h3>
     <VueNumberFormat 
       v-model:value="example.value" 
       :options="example.options"

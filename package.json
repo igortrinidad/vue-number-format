@@ -1,13 +1,13 @@
 {
   "name": "vue-number-format",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
     "build": "vue build --target lib --name VueNumberFormat ./src/index.js"
   },
   "author": "Igor Trindade",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "rollup": "^1.17.0",

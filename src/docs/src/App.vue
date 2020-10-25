@@ -1,12 +1,12 @@
 <template>
   <div class="w-full h-screen flex justify-center max-h-full overflow-y-auto bg-gradient">
-    <div class="max-w-lg">
+    <div class="w-full max-w-lg">
       <div class="w-full flex flex-wrap  text-lg p-4 md:p-6">
         <div class="h-1/3 w-full flex flex-col justify-end">
           <h1 class="w-full text-white text-center font-medium"><span class="border-b-4 border-green">vue-number-format</span></h1>
           <p class="text-center">A lightweight flexible Vue.js 2 and 3 component to display and input formatted numbers and currencies</p>
           
-          <div class="w-full flex justify-center h-12 items-center">
+          <div class="w-full flex justify-center h-12 items-center mt-4">
             <div class="w-2/5 text-right text-xs">
               <a class="bg-grey-light px-4 py-2" href="https://github.com/igortrinidad/vue-number-format">View on GitHub</a>
             </div>
@@ -32,14 +32,10 @@
         <div class="w-full flex flex-wrap">
           <h2 class="w-full text-white text-center font-medium"><span class="border-b-4 border-green">Instalation</span></h2>
           <!-- US DOLLAR -->
-          <div class="w-full my-3"
+          <InstalationCard :instalation="instalation" 
             v-for="(instalation, index) in instalations"
             :key="`instalation` + index"
-          >
-            <h3>{{instalation.title}}</h3>
-            <Prism :code="instalation.code()" :language="instalation.language"></Prism>
-            <div v-if="instalation.tips" class="w-full p-2 bg-white rounded" v-html="instalation.tips"></div>
-          </div>
+          ></InstalationCard>
         </div>
 
       </div>
@@ -49,11 +45,12 @@
 
 <script>
 import ExampleCard from './ExampleCard'
+import InstalationCard from './InstalationCard'
 import examples from './examples'
 import instalations from './instalation'
 export default {
   name: 'App',
-  components: { ExampleCard },
+  components: { ExampleCard, InstalationCard },
   metaInfo() {
     const title = 'vue-number-format - A Vue.js 2 and 3 lightweight library to input and display format'
     return { title }
