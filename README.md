@@ -97,7 +97,7 @@ This is the default package options, feel free to change for anything you need
 ## Test functional (using Japa Tests)
 
 ```bash
-  add tests...
+  npm run test
 ```
 
 
@@ -118,4 +118,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - v1.1.0
   - Initial release.
+  - Added Jest - tests
+  - Added tests for format and unformat functions
   

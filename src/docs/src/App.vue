@@ -8,13 +8,13 @@
           
           <div class="w-full flex justify-center h-12 items-center mt-4">
             <div class="w-2/5 text-right text-xs">
-              <a class="bg-grey-light px-4 py-2" href="https://github.com/igortrinidad/vue-number-format">View on GitHub</a>
+              <a class="bg-grey-light px-4 py-2" href="https://github.com/igortrinidad/vue-number-format">GitHub</a>
             </div>
             <div class="w-1/5 flex justify-center p-3 items-center h-full">
               <div class="vertical-divider bg-white"></div>
             </div>
             <div class="w-2/5 text-left text-xs">
-              <a class="bg-grey-light px-4 py-2" href="https://www.npmjs.com/package/vue-number-format">View on NPM</a>
+              <a class="bg-grey-light px-4 py-2" href="https://www.npmjs.com/package/vue-number-format">NPM</a>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
-export const defaultOptions = {
-  prefix: 'US$ ',
+module.exports = {
+  prefix: 'R$ ',
   suffix: '',
   decimal: ',',
   thousand: '.',
@@ -7,5 +7,3 @@ export const defaultOptions = {
   acceptNegative: true,
   isInteger: false
 }
-
-export default defaultOptions

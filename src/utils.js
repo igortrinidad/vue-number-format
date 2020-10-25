@@ -9,41 +9,46 @@
  * file that was distributed with this source code.
  */
 
-import defaultOptions from './defaultOptions'
+const defaultOptions = require('./defaultOptions')
 
-export const format = (input, opt = defaultOptions) => {
-  if (typeof input === 'number' && !opt.isInteger) {
-    input = input.toFixed(fixed(opt.precision))
+const format = (input, opt = defaultOptions) => {
+  const mergedOptions = Object.assign({}, defaultOptions, opt)
+  if (typeof input === 'number' && !mergedOptions.isInteger) {
+    input = input.toFixed(fixed(mergedOptions.precision))
   }
-  const negative = isNegative(input, opt.acceptNegative)  ? '-' : ''
+  const negative = isNegative(input, mergedOptions.acceptNegative)  ? '-' : ''
   const numbers = onlyNumbers(input)
-  const currency = numbersToCurrency(numbers, opt.precision)
+  const currency = numbersToCurrency(numbers, mergedOptions.precision)
   const parts = toStr(currency).split('.')
   var integer = parts[0]
   const decimal = parts[1]
-  integer = addThousandSeparator(integer, opt.thousand)
-  return negative + opt.prefix + joinIntegerAndDecimal(integer, decimal, opt.decimal) + opt.suffix
+  integer = addThousandSeparator(integer, mergedOptions.thousand)
+  return negative + mergedOptions.prefix + joinIntegerAndDecimal(integer, decimal, mergedOptions.decimal) + mergedOptions.suffix
 }
+module.exports.format = format
 
-export const unformat = (input, opt = { precision: 2, isInteger: false, acceptNegative: true}) => {
-  var negative = (isNegative(input, opt.acceptNegative)) ? -1 : 1
+const unformat = (input, opt = { precision: 2, isInteger: false, acceptNegative: true}) => {
+  const mergedOptions = Object.assign({}, defaultOptions, opt)
+  var negative = (isNegative(input, mergedOptions.acceptNegative)) ? -1 : 1
   var numbers = onlyNumbers(input)
-  var currency = numbersToCurrency(numbers, opt.precision)
-
-  if(opt.isInteger) {
-    return parseInt(`${isNegative(input, opt.acceptNegative) ? '-' : ''}${numbers.toString()}`)
+  var currency = numbersToCurrency(numbers, mergedOptions.precision)
+  if(mergedOptions.isInteger) {
+    return parseInt(`${isNegative(input, mergedOptions.acceptNegative) ? '-' : ''}${numbers.toString()}`)
   }
   return parseFloat(currency) * negative
 }
+module.exports.unformat = unformat
 
-export const setCursor = (el, position) => {
+const setCursor = (el, position) => {
   var setSelectionRange = function () { el.setSelectionRange(position, position) }
   if (el === document.activeElement) {
     setTimeout(setSelectionRange, 1)
   }
 }
+module.exports.setCursor = setCursor
 
-export const setCursorPosition = (el, opt = defaultOptions) => {
+
+const setCursorPosition = (el, opt = defaultOptions) => {
   var positionFromEnd = el.value.length - el.selectionEnd
   el.value = format(el.value, opt)
   positionFromEnd = Math.max(positionFromEnd, opt.suffix.length)
@@ -51,6 +56,7 @@ export const setCursorPosition = (el, opt = defaultOptions) => {
   positionFromEnd = Math.max(positionFromEnd, opt.prefix.length + 1)
   setCursor(el, positionFromEnd)
 }
+module.exports.setCursorPosition = setCursorPosition
 
 
 function onlyNumbers (input) {
