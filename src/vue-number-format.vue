@@ -29,7 +29,7 @@ export default {
       required: false
     }
   },
-
+  emits: ['input', 'update:value'],
   computed: {
     mergedOptions() {
       if(this.options) {
@@ -55,8 +55,11 @@ export default {
     },
 
     updateValue(value) {
-      this.$emit('update:value', value)
-      this.$emit('input', value)
+      if(this.$vueNumberFormatOptions.vueVersion === 'v2') {
+        this.$emit('input', value)
+      } else {
+        this.$emit('update:value', value)
+      }
     },
 
     setCursor(element, position) {
