@@ -118,5 +118,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   - Initial release.
   - Added Jest - tests
   - Added tests for format and unformat functions
+  - Added vue-test-unit tests for component tests coverage
   
   

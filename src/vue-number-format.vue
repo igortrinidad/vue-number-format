@@ -10,6 +10,7 @@
 <script>
 
 import { format, unformat, setCursor, setCursorPosition } from './utils'
+import defaultOptions from './defaultOptions'
 
 export default {
   name: 'VueNumberFormat',
@@ -32,14 +33,19 @@ export default {
   emits: ['input', 'update:value'],
   computed: {
     mergedOptions() {
+      const options = this.$vueNumberFormatOptions || defaultOptions
       if(this.options) {
-        return Object.assign({}, this.$vueNumberFormatOptions, this.options)
+        return Object.assign({}, options, this.options)
       }
-      return this.$vueNumberFormatOptions
+      return options
     },
     formattedValue() {
       return format(this.value, this.mergedOptions)
     }
+  },
+
+  created() {
+    if(!this.$vueNumberFormatOptions) this.$vueNumberFormatOptions = defaultOptions
   },
 
   methods: {
@@ -55,19 +61,12 @@ export default {
     },
 
     updateValue(value) {
-      if(this.$vueNumberFormatOptions.vueVersion === 'v2') {
+      if(this.$vueNumberFormatOptions && this.$vueNumberFormatOptions.vueVersion === 'v2') {
         this.$emit('input', value)
       } else {
         this.$emit('update:value', value)
       }
-    },
-
-    setCursor(element, position) {
-      var setSelectionRange = function () { element.setSelectionRange(position, position) }
-      if (element === document.activeElement) {
-        setTimeout(setSelectionRange, 1)
-      }
-    },
+    }
     
   }
 }
