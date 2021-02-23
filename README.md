@@ -7,6 +7,8 @@ A lightweight flexible Vue.js 2 and 3 component to display and input formatted n
   <img src="https://img.shields.io/npm/l/vue-number-format?style=for-the-badge" alt="License MIT"/>
 </p>
 
+## [Docs and Demo](https://igortrinidad.github.io/vue-number-format)
+
 ## 1. Install
 
 Install npm module:
