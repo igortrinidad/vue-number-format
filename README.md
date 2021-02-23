@@ -1,8 +1,6 @@
-<h1 align="center">vue-number-format</h1>
+# vue-number-format
  
-<p align="center">
-  A lightweight flexible Vue.js 2 and 3 component to display and input formatted numbers and currencies
-</p>
+A lightweight flexible Vue.js 2 and 3 component to display and input formatted numbers and currencies
 
 <p align="center">
   <img src="https://img.shields.io/bundlephobia/min/vue-number-format?style=for-the-badge" alt="Package size"/>
@@ -27,7 +25,7 @@ import App from './App.vue'
 import VueNumberFormat from 'vue-number-format'
 
 const app = createApp(App)
-app.use(VueNumberFormat, {prefix: 'US$ ', decimal: ',', thounsand: '.'})
+app.use(VueNumberFormat, {prefix: 'US$ ', decimal: ',', thousand: '.'})
 
 app.mount('#app')
 ```
@@ -38,7 +36,7 @@ import Vue from 'vue'
 import App from './App.vue'
 
 import VueNumberFormat from 'vue-number-format'
-Vue.use(VueNumberFormat, {prefix: 'R$ ', decimal: ',', thounsand: '.'})
+Vue.use(VueNumberFormat, {prefix: 'R$ ', decimal: ',', thousand: '.'})
 
 new Vue({
   render: h => h(App),
