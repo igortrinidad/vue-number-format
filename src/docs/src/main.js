@@ -5,7 +5,7 @@ import 'prismjs/themes/prism-okaidia.css'
 import Prism from './Prism'
 const app = createApp(App)
 
-app.use(VueNumberFormat, {precision: 2})
+app.use(VueNumberFormat, {precision: 2, prefix: ''})
 app.component('Prism', Prism)
 
 app.mount('#app')

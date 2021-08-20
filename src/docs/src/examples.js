@@ -1,4 +1,3 @@
-import normalizer from './assets/normalizer'
 
 export default [
   {
@@ -6,12 +5,12 @@ export default [
     value: 275,
     options: { precision: 2, decimal: '.', thousand: ',' },
     code() {
-      return normalizer.normalize(`
+      return `
         <VueNumberFormat 
           v-model:value="value" 
           :options="{ precision: 2, decimal: '.', thousand: ',' }"
         ></VueNumberFormat>
-      `)
+      `
     }
   },
   {
@@ -19,12 +18,12 @@ export default [
     value: 275,
     options: { precision: 2, prefix: 'R$ ', isInteger: true },
     code() {
-      return normalizer.normalize(`
+      return `
         <VueNumberFormat 
           v-model:value="value" 
           :options="{ precision: 2, prefix: 'R$ ', isInteger: true }"
         ></VueNumberFormat>
-      `)
+      `
     }
   },
   {
@@ -32,12 +31,12 @@ export default [
     value: 275,
     options: { precision: 3, prefix: '', suffix: ' kg', acceptNegative: false  },
     code() {
-      return normalizer.normalize(`
+      return `
         <VueNumberFormat 
           v-model:value="value" 
           :options="{ precision: 3, prefix: '', suffix: ' kg', acceptNegative: false  }"
         ></VueNumberFormat>
-      `)
+      `
     }
   },
   {
@@ -45,12 +44,12 @@ export default [
     value: 2.75,
     options: { prefix: '%', decimal: '.', thousand: '', precision: 2, acceptNegative: false },
     code() {
-      return normalizer.normalize(`
+      return `
         <VueNumberFormat 
           v-model:value="value" 
           :options="{ prefix: '%', decimal: '.', thousand: '', precision: 2, acceptNegative: false }"
         ></VueNumberFormat>
-      `)
+      `
     }
   }
 ]

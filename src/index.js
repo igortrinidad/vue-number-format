@@ -26,11 +26,11 @@ const install = (Vue, options) => {
   Vue.mixin({
     methods: {
       vueNumberFormat(value, options = mergedOptions) {
-        const fnMergedOptions = Object.assign({}, defaultOptions, options)
+        const fnMergedOptions = Object.assign({}, mergedOptions, options)
         return format(value, fnMergedOptions)
       },
       vueNumberUnformat(value, options = mergedOptions) {
-        const fnMergedOptions = Object.assign({}, defaultOptions, options)
+        const fnMergedOptions = Object.assign({}, mergedOptions, options)
         return unformat(value, fnMergedOptions)
       },
     }

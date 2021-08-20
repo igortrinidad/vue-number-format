@@ -1,22 +1,21 @@
-import normalizer from './assets/normalizer'
 
 export default [
   {
     title: 'Package install',
     language: 'bash',
     code() {
-      return normalizer.normalize(`
+      return `
         yarn add vue-number-format
         or
         npm i -S vue-number-format
-      `)
+      `
     },
   },
   {
     title: 'Vue 3 Global usage',
     language: 'js',
     code() {
-      return normalizer.normalize(`
+      return `
         /* ONLY FOR VUE 3 */
         import { createApp } from 'vue'
         import App from './App.vue'
@@ -26,14 +25,14 @@ export default [
         app.use(VueNumberFormat, {prefix: 'US$ ', decimal: ',', thounsand: '.'})
 
         app.mount('#app')
-      `)
+      `
     },
   },
   {
     title: 'Vue 2 Global usage',
     language: 'js',
     code() {
-      return normalizer.normalize(`
+      return `
         /* ONLY FOR VUE 2 */
         import Vue from 'vue'
         import App from './App.vue'
@@ -44,14 +43,14 @@ export default [
         new Vue({
           render: h => h(App),
         }).$mount('#app')
-      `)
+      `
     }
   },
   {
     title: 'Local component usage',
     language: 'html',
     code() {
-      return normalizer.normalize(`
+      return `
         <template>
           ...
           <!-- VUE 3 -->
@@ -75,7 +74,7 @@ export default [
             components: { VueNumberFormat }
           }
         </script>
-      `)
+      `
     }
   },
 
@@ -83,7 +82,7 @@ export default [
     title: 'Default options',
     language: 'js',
     code() {
-      return normalizer.normalize(`
+      return `
         {
           prefix: 'US$ ',
           suffix: '',
@@ -93,20 +92,20 @@ export default [
           acceptNegative: true,
           isInteger: false
         }
-      `)
+      `
     }
   },
   {
     title: 'Display format',
     language: 'html',
     code() {
-      return normalizer.normalize(`
+      return `
         {{vueNumberFormat(275, {})}}
         <!-- display US$275.00 -->
         <!-- Available only within global instalation -->
         <!-- use like a component method -->
         <!-- Filters are removed from Vue 3.0 and no longer supported: https://v3.vuejs.org/guide/migration/filters.html-->
-      `)
+      `
     },
     tips: 'Available only within global instalation'
   },
@@ -114,13 +113,13 @@ export default [
     title: 'Display unformatted number',
     language: 'html',
     code() {
-      return normalizer.normalize(`
+      return `
         {{vueNumberUnformat('R$275,00', {})}}
         <!-- display 275 -->
         <!-- Available only within global instalation -->
         <!-- use like a component method -->
         <!-- Filters are removed from Vue 3.0 and no longer supported: https://v3.vuejs.org/guide/migration/filters.html-->
-      `)
+      `
     },
     tips: 'Available only within global instalation'
   },

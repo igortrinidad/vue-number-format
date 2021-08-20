@@ -6,7 +6,7 @@
       :options="example.options"
       class="w-full text-lg text-center text-2xl p-4 focus:outline-none focus:shadow-md focus:border-blue" 
     ></VueNumberFormat>
-    <div class="w-full flex p-2 justify-center">
+    <div class="w-full flex p-1 justify-center">
       <div class="w-2/5 text-right text-xs">
         <p>{{example.value}}</p>
         <p>output</p>

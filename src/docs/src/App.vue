@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full h-screen flex justify-center max-h-full overflow-y-auto bg-gradient">
-    <div class="w-full max-w-lg">
+  <div class="w-full h-screen flex justify-center max-h-full overflow-y-auto bg-gradient p-6">
+    <div class="w-full max-w-xl">
       <div class="w-full flex flex-wrap  text-lg p-4 md:p-6">
         <div class="h-1/3 w-full flex flex-col justify-end">
           <h1 class="w-full text-white text-center font-medium"><span class="border-b-4 border-green">vue-number-format</span></h1>
@@ -27,6 +27,13 @@
             :key="index"
             :example="example"
           ></ExampleCard>
+
+          <ExampleMixinMethodUsage
+            v-for="(example, index) in examplesMixin"
+            :key="index"
+            :example="example"
+          ></ExampleMixinMethodUsage>
+
         </div>
         
         <div class="w-full flex flex-wrap">
@@ -45,12 +52,14 @@
 
 <script>
 import ExampleCard from './ExampleCard'
+import ExampleMixinMethodUsage from './ExampleMixinMethodUsage'
 import InstalationCard from './InstalationCard'
 import examples from './examples'
+import examplesMixin from './examples-mixin'
 import instalations from './instalation'
 export default {
   name: 'App',
-  components: { ExampleCard, InstalationCard },
+  components: { ExampleCard, InstalationCard, ExampleMixinMethodUsage },
   metaInfo() {
     const title = 'vue-number-format - A Vue.js 2 and 3 lightweight library to input and display format'
     return { title }
@@ -58,6 +67,7 @@ export default {
   data() {
     return {
       examples,
+      examplesMixin,
       instalations
     }
   }
