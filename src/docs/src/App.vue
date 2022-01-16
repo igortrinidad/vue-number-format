@@ -1,12 +1,12 @@
 <template>
-  <div class="w-full h-screen flex justify-center max-h-full overflow-y-auto bg-gradient p-6">
-    <div class="w-full max-w-xl">
+  <div class="w-full h-screen flex justify-center max-h-full overflow-y-auto bg-gradient p-12">
+    <div class="w-full max-w-screen-lg">
       <div class="w-full flex flex-wrap  text-lg p-4 md:p-6">
-        <div class="h-1/3 w-full flex flex-col justify-end">
+        <div class="h-1/3 w-full flex flex-col justify-end space-y-12">
           <h1 class="w-full text-white text-center font-medium"><span class="border-b-4 border-green">vue-number-format</span></h1>
           <p class="text-center">A lightweight flexible Vue.js 2 and 3 component to display and input formatted numbers and currencies</p>
           
-          <div class="w-full flex justify-center h-12 items-center mt-4">
+          <div class="w-full flex justify-center items-center">
             <div class="w-2/5 text-right text-xs">
               <a class="bg-grey-light px-4 py-2" href="https://github.com/igortrinidad/vue-number-format">GitHub</a>
             </div>
@@ -76,6 +76,6 @@ export default {
 
 <style>
 
-@import "./assets/styles.css";
+@import "/output.css";
 
 </style>

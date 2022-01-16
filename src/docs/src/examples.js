@@ -51,5 +51,18 @@ export default [
         ></VueNumberFormat>
       `
     }
+  },
+  {
+    title: 'Handling null values',
+    value: null,
+    options: { prefix: 'US$', decimal: '.', thousand: '', precision: 2, acceptNegative: false },
+    code() {
+      return `
+        <VueNumberFormat 
+          v-model:value="null" 
+          :options="{ prefix: 'US$', decimal: '.', thousand: '', precision: 2, acceptNegative: false }"
+        ></VueNumberFormat>
+      `
+    }
   }
 ]
