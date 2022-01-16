@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build && cd ../../docs/css && pwd && sed -i 's|/output.css|/vue-number-format/output.css|g' *",
     "tailwind": "npx tailwindcss -i ./src/assets/styles.css -o ./public/output.css --watch",
     "build:tailwind": "npx tailwindcss -i ./src/assets/styles.css -o ./public/output.css --minify"
   },

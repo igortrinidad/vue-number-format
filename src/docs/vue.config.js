@@ -1,6 +1,6 @@
 module.exports = {
 
-  publicPath: '.',
+  publicPath: '/vue-number-format/',
 
   outputDir: '../../docs'
 }
