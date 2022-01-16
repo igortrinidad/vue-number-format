@@ -21,3 +21,15 @@ test('it should avoid the number to be negative', () => {
 test('it should unformat another number avoiding negative inputs', () => {
   expect(unformat('-%2,75', {acceptNegative: false})).toBe(2.75);
 });
+test('it should returns formatted zero on null values', () => {
+  expect(format(null)).toBe('R$ 0,00');
+});
+test('it should returns formatted zero on empty values', () => {
+  expect(format()).toBe('R$ 0,00');
+});
+test('it should returns 0 on null values', () => {
+  expect(unformat(null)).toBe(0);
+});
+test('it should returns 0 on empty values', () => {
+  expect(unformat()).toBe(0);
+});

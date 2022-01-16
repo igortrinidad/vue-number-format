@@ -11,7 +11,8 @@
 
 const defaultOptions = require('./defaultOptions')
 
-const format = (input, opt = defaultOptions) => {
+const format = (input = 0, opt = defaultOptions) => {
+  if(input === null) input = 0
   const mergedOptions = Object.assign({}, defaultOptions, opt)
   if (typeof input === 'number' && !mergedOptions.isInteger) {
     input = input.toFixed(fixed(mergedOptions.precision))
@@ -27,7 +28,8 @@ const format = (input, opt = defaultOptions) => {
 }
 module.exports.format = format
 
-const unformat = (input, opt = { precision: 2, isInteger: false, acceptNegative: true}) => {
+const unformat = (input = 0, opt = { precision: 2, isInteger: false, acceptNegative: true}) => {
+  if(input === null) input = 0
   const mergedOptions = Object.assign({}, defaultOptions, opt)
   var negative = (isNegative(input, mergedOptions.acceptNegative)) ? -1 : 1
   var numbers = onlyNumbers(input)
