@@ -78,4 +78,8 @@ export default {
 
 @import "/output.css";
 
+.force-update-github {
+  color: red;
+}
+
 </style>
