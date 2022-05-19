@@ -19,7 +19,7 @@ export default [
         /* ONLY FOR VUE 3 */
         import { createApp } from 'vue'
         import App from './App.vue'
-        import VueNumberFormat from '@igortrindade/vue-number-format'
+        import VueNumberFormat from 'vue-number-format'
 
         const app = createApp(App)
         app.use(VueNumberFormat, {prefix: 'US$ ', decimal: ',', thounsand: '.'})
@@ -34,7 +34,7 @@ export default [
     code() {
       return `
         /* ONLY FOR NUXT 3 */
-        // plugins/index.ts
+        // pludings/index.ts
         import VueNumberFormat from '@igortrindade/vue-number-format'
 
         export default defineNuxtPlugin((nuxtApp) => {
@@ -52,7 +52,7 @@ export default [
         import Vue from 'vue'
         import App from './App.vue'
         
-        import VueNumberFormat from '@igortrindade/vue-number-format'
+        import VueNumberFormat from 'vue-number-format'
         Vue.use(VueNumberFormat, {prefix: 'R$ ', decimal: ',', thounsand: '.'})
         
         new Vue({
@@ -84,7 +84,7 @@ export default [
           ...
         </template>
         <script>
-          import VueNumberFormat from '@igortrindade/vue-number-format'
+          import VueNumberFormat from 'vue-number-format'
           export default {
             components: { VueNumberFormat }
           }
