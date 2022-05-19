@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-import defaultOptions from './defaultOptions'
+const defaultOptions = require('./defaultOptions')
 
 export const format = (input = 0, opt = defaultOptions) => {
   if(input === null) input = 0

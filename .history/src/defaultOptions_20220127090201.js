@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   prefix: 'R$ ',
   suffix: '',
   decimal: ',',

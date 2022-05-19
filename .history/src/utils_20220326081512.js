@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-import defaultOptions from './defaultOptions'
+const defaultOptions = require('./defaultOptions')
 
-export const format = (input = 0, opt = defaultOptions) => {
+const format = (input = 0, opt = defaultOptions) => {
   if(input === null) input = 0
   const mergedOptions = Object.assign({}, defaultOptions, opt)
   if (typeof input === 'number' && !mergedOptions.isInteger) {
@@ -26,8 +26,9 @@ export const format = (input = 0, opt = defaultOptions) => {
   integer = addThousandSeparator(integer, mergedOptions.thousand)
   return negative + mergedOptions.prefix + joinIntegerAndDecimal(integer, decimal, mergedOptions.decimal) + mergedOptions.suffix
 }
+module.exports.format = format
 
-export const unformat = (input = 0, opt = { precision: 2, isInteger: false, acceptNegative: true}) => {
+const unformat = (input = 0, opt = { precision: 2, isInteger: false, acceptNegative: true}) => {
   if(input === null) input = 0
   const mergedOptions = Object.assign({}, defaultOptions, opt)
   var negative = (isNegative(input, mergedOptions.acceptNegative)) ? -1 : 1
@@ -38,16 +39,18 @@ export const unformat = (input = 0, opt = { precision: 2, isInteger: false, acce
   }
   return parseFloat(currency) * negative
 }
+module.exports.unformat = unformat
 
-export const setCursor = (el, position) => {
+const setCursor = (el, position) => {
   var setSelectionRange = function () { el.setSelectionRange(position, position) }
   if (el === document.activeElement) {
     setTimeout(setSelectionRange, 1)
   }
 }
+module.exports.setCursor = setCursor
 
 
-export const setCursorPosition = (el, opt = defaultOptions) => {
+const setCursorPosition = (el, opt = defaultOptions) => {
   var positionFromEnd = el.value.length - el.selectionEnd
   el.value = format(el.value, opt)
   positionFromEnd = Math.max(positionFromEnd, opt.suffix.length)
@@ -55,6 +58,7 @@ export const setCursorPosition = (el, opt = defaultOptions) => {
   positionFromEnd = Math.max(positionFromEnd, opt.prefix.length + 1)
   setCursor(el, positionFromEnd)
 }
+module.exports.setCursorPosition = setCursorPosition
 
 
 function onlyNumbers (input) {

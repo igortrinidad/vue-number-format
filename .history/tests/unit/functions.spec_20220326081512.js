@@ -1,4 +1,4 @@
-import { format, unformat } from '../../src/utils'
+const {format, unformat } = require('@/utils');
 
 test('it should format a given number to US$ currency format', () => {
   expect(format(275, {prefix: 'US$ '})).toBe('US$ 275,00');
