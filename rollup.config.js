@@ -6,16 +6,20 @@ export default [
     input: 'src/index.js',
     output: [
       {
+        exports: 'auto',
         format: 'esm',
         file: 'dist/library.mjs'
       },
       {
+        exports: 'auto',
         format: 'cjs',
         file: 'dist/library.js'
       }
     ],
+    external: ['vue'],
     plugins: [
-      vue(), peerDepsExternal()
+      vue(),
+      peerDepsExternal()
     ]
   }
 ]
