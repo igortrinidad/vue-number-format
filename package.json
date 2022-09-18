@@ -10,7 +10,8 @@
   "scripts": {
     "build": "vue build --target lib --name VueNumberFormat ./src/index.js",
     "test": "vue-cli-service test:unit",
-    "build:rollup": "rollup -c"
+    "build:rollup": "rollup -c",
+    "release": "standard-version"
   },
   "author": "Igor Trindade",
   "license": "MIT",
@@ -28,6 +29,7 @@
     "rollup": "^2.74.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-vue": "^6.0.0",
+    "standard-version": "^9.5.0",
     "typescript": "~3.9.3",
     "vue": "^3.0.0",
     "vue-jest": "^5.0.0-0"

@@ -1,0 +1,14 @@
+{
+  "types": [
+    { "type":"feat","section":"Features" },
+    { "type":"fix","section":"Bug Fixes" },
+    { "type":"merge","section":"Merge branchs" },
+    { "type":"test","section":"Tests" },
+    { "type":"chore","section":"Routine tasks" },
+    { "type":"refactor","section":"Refactor" },
+    { "type":"docs","section":"Docs" },
+    { "type":"build", "section":"Builds and bundles" },
+    { "type":"ci", "section":"CI process" }
+  ]
+}
+
