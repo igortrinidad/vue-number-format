@@ -27,7 +27,7 @@ export default {
     },
     options: {
       type: Object,
-      required: false
+      default: () => {},
     }
   },
   emits: ['input', 'update:value'],
