@@ -4,7 +4,7 @@
     type="tel"
     @input="onInput($event)"
     @focus="onFocus($event)"
-  />
+  >
 </template>
 
 <script>
