@@ -19,12 +19,6 @@ export default {
       type: [String, Number, null],
       required: true
     },
-    format: {
-      type: Function
-    },
-    unFormat: {
-      type: Function
-    },
     options: {
       type: Object,
       default: () => {},
