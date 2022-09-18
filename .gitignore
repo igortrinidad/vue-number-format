@@ -3,8 +3,6 @@ node_modules
 /src/docs/node_modules
 /src/docs/postcss.config.js
 /src/docs/package-lock.json
-package-lock.json
-
 
 # local env files
 .env.local
