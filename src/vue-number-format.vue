@@ -7,12 +7,12 @@
   />
 </template>
 
-<script>
-
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { format, unformat, setCursor, setCursorPosition } from './utils'
-import defaultOptions from './defaultOptions'
+import { defaultOptions } from './defaultOptions'
 
-export default {
+export default defineComponent({
   name: 'VueNumberFormat',
   props: {
     value: {
@@ -51,6 +51,7 @@ export default {
   methods: {
 
     onFocus($event) {
+      console.log(this.mergedOptions)
       setCursor($event.target, ($event.target.value.length - this.mergedOptions.suffix.length))
     },
 
@@ -69,5 +70,5 @@ export default {
     }
     
   }
-}
+})
 </script>

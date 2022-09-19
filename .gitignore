@@ -23,3 +23,8 @@ pnpm-debug.log*
 *.sln
 *.sw?
 .history
+
+# Example / docs
+/example/vue-docs-project/node_modules
+/example/vue-docs-project/postcss.config.js
+/example/vue-docs-project/package-lock.json
