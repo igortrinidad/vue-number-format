@@ -15,10 +15,12 @@ jobs:
         fetch-depth: 0
     - uses: actions/setup-node@v3
       with:
-        node-version: '14.20.0'
+        node-version: '16.17.0'
     - run: git config --global user.email "igortrinidad@users.noreply.github.co"
     - run: git config --global user.name "Igor Trindade"
-    - run: pwd && npm ci
+    - run: npm ci
+    - run: npm run test
+    - run: npm run build
     - run: npm run release
-    # - run: git push --follow-tags origin master
+    - run: git push --follow-tags origin master
 
