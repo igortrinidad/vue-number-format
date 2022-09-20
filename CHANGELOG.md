@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1](https://github.com/igortrinidad/vue-number-format/compare/v1.5.0...v1.5.1) (2022-09-20)
+
+
+### Bug Fixes
+
+* Removed docs/package-lock from gitignore ([8b60421](https://github.com/igortrinidad/vue-number-format/commit/8b60421b67bd19b6f575a978b477e8f228c36c11))
+
+
+### Routine tasks
+
+* Adding build docs command inside root package.json ([bfb1179](https://github.com/igortrinidad/vue-number-format/commit/bfb1179c31ca31cce55c6e4a7186025fcddaf7f4))
+* Updated workflow to build docs and deploy it to npm ([ba8cd94](https://github.com/igortrinidad/vue-number-format/commit/ba8cd946df0393f44c83fcdd47f5c4f07d9b019e))
+
 ## [1.5.0](https://github.com/igortrinidad/vue-number-format/compare/v1.4.0...v1.5.0) (2022-09-20)
 
 
