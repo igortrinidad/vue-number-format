@@ -20,5 +20,5 @@ jobs:
     - run: git config --global user.name "Igor Trindade"
     - run: pwd && npm ci
     - run: npm run release
-    - run: git push --follow-tags origin master
+    # - run: git push --follow-tags origin master
 
