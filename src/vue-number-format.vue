@@ -4,7 +4,7 @@
     type="tel"
     @input="onInput($event)"
     @focus="onFocus($event)"
-  />
+  >
 </template>
 
 <script>
@@ -19,15 +19,9 @@ export default {
       type: [String, Number, null],
       required: true
     },
-    format: {
-      type: Function
-    },
-    unFormat: {
-      type: Function
-    },
     options: {
       type: Object,
-      required: false
+      default: () => {},
     }
   },
   emits: ['input', 'update:value'],
