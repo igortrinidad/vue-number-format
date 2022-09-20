@@ -2,10 +2,11 @@
   "name": "@igortrindade/vue-number-format",
   "version": "1.4.0",
   "description": "",
-  "main": "dist/library.js",
-  "module": "dist/library.mjs",
+  "main": "src/index.js",
   "files": [
-    "dist/*"
+    "dist/*",
+    "src/*.js",
+    "src/*.vue"
   ],
   "scripts": {
     "build": "vue-cli-service build --target lib --name VueNumberFormat ./src/index.js",
