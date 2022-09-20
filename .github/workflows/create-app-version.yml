@@ -25,6 +25,7 @@ jobs:
     - run: npm run test
     - run: npm run build
     - run: npm run build:docs
+    - run: git add -A
     - run: npm run release
     - run: git push --follow-tags origin master
     - run: npm publish --access public
