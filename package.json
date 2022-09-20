@@ -11,9 +11,9 @@
   "scripts": {
     "build": "vue-cli-service build --target lib --name VueNumberFormat ./src/index.js",
     "test": "vue-cli-service test:unit",
-    "build:rollup": "rollup -c",
+    "build:docs": "cd example/docs && npm ci && npm run build",
     "lint": "vue-cli-service lint",
-    "release": "standard-version"
+    "release": "standard-version -a"
   },
   "author": "Igor Trindade",
   "license": "MIT",
