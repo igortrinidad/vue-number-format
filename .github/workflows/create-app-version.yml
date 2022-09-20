@@ -16,11 +16,18 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '16.17.0'
+        registry-url: 'https://registry.npmjs.org'
+        scope: '@igortrindade'
+        always-auth: true
     - run: git config --global user.email "igortrinidad@users.noreply.github.co"
     - run: git config --global user.name "Igor Trindade"
     - run: npm ci
     - run: npm run test
     - run: npm run build
+    - run: npm run build:docs
     - run: npm run release
     - run: git push --follow-tags origin master
+    - run: npm publish --access public
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
