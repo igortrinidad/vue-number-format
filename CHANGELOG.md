@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.4](https://github.com/igortrinidad/vue-number-format/compare/v1.5.3...v1.5.4) (2022-09-20)
+
+
+### Routine tasks
+
+* Added pr-test workflow ([0939a9c](https://github.com/igortrinidad/vue-number-format/commit/0939a9c47f727d7c3f0a093942e318490674ae3e))
+
 ### [1.5.3](https://github.com/igortrinidad/vue-number-format/compare/v1.5.2...v1.5.3) (2022-09-20)
 
 
