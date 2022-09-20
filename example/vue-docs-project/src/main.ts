@@ -5,9 +5,6 @@ import 'prismjs/themes/prism-okaidia.css'
 import Prism from './Prism.vue'
 const app = createApp(App)
 
-import LvButton from 'lv-button'
-
-app.use(LvButton)
 app.use(VueNumberFormat, {precision: 2, prefix: ''})
 app.component('Prism', Prism)
 

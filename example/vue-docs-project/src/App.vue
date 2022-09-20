@@ -19,8 +19,6 @@
           </div>
         </div>
 
-        <LearnVueButton></LearnVueButton>
-
         <div class="w-full flex flex-wrap my-8">
           <h2 class="w-full text-white text-center font-medium"><span class="border-b-4 border-green">Examples</span></h2>
           <!-- US DOLLAR -->
