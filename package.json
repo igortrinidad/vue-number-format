@@ -8,7 +8,7 @@
     "dist/*"
   ],
   "scripts": {
-    "build": "vue build --target lib --name VueNumberFormat ./src/index.js",
+    "build": "vue-cli-service build --target lib --name VueNumberFormat ./src/index.js",
     "test": "vue-cli-service test:unit",
     "build:rollup": "rollup -c",
     "release": "standard-version"
