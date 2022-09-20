@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.3](https://github.com/igortrinidad/vue-number-format/compare/v1.5.2...v1.5.3) (2022-09-20)
+
+
+### Bug Fixes
+
+* Fix deploy workflow to add docs on release commit ([5358be4](https://github.com/igortrinidad/vue-number-format/commit/5358be41d7a5147f5f2442e8c010b5dfbca4acd3))
+
 ### [1.5.2](https://github.com/igortrinidad/vue-number-format/compare/v1.5.1...v1.5.2) (2022-09-20)
 
 
