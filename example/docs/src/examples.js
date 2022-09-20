@@ -19,10 +19,10 @@ export default [
     options: { precision: 2, prefix: 'R$ ', isInteger: true },
     code() {
       return `
-        <VueNumberFormat 
-          v-model:value="value" 
-          :options="{ precision: 2, prefix: 'R$ ', isInteger: true }"
-        ></VueNumberFormat>
+<VueNumberFormat 
+  v-model:value="value" 
+  :options="{ precision: 2, prefix: 'R$ ', isInteger: true }"
+></VueNumberFormat>
       `
     }
   },
@@ -32,10 +32,10 @@ export default [
     options: { precision: 3, prefix: '', suffix: ' kg', acceptNegative: false  },
     code() {
       return `
-        <VueNumberFormat 
-          v-model:value="value" 
-          :options="{ precision: 3, prefix: '', suffix: ' kg', acceptNegative: false  }"
-        ></VueNumberFormat>
+<VueNumberFormat 
+  v-model:value="value" 
+  :options="{ precision: 3, prefix: '', suffix: ' kg', acceptNegative: false  }"
+></VueNumberFormat>
       `
     }
   },
@@ -45,10 +45,10 @@ export default [
     options: { prefix: '%', decimal: '.', thousand: '', precision: 2, acceptNegative: false },
     code() {
       return `
-        <VueNumberFormat 
-          v-model:value="value" 
-          :options="{ prefix: '%', decimal: '.', thousand: '', precision: 2, acceptNegative: false }"
-        ></VueNumberFormat>
+<VueNumberFormat 
+  v-model:value="value" 
+  :options="{ prefix: '%', decimal: '.', thousand: '', precision: 2, acceptNegative: false }"
+></VueNumberFormat>
       `
     }
   },
@@ -58,10 +58,10 @@ export default [
     options: { prefix: 'US$', decimal: '.', thousand: '', precision: 2, acceptNegative: false },
     code() {
       return `
-        <VueNumberFormat 
-          v-model:value="null" 
-          :options="{ prefix: 'US$', decimal: '.', thousand: '', precision: 2, acceptNegative: false }"
-        ></VueNumberFormat>
+<VueNumberFormat 
+  v-model:value="null" 
+  :options="{ prefix: 'US$', decimal: '.', thousand: '', precision: 2, acceptNegative: false }"
+></VueNumberFormat>
       `
     }
   }
