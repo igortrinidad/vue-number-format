@@ -1,7 +1,7 @@
 <template>
   <input
     :value="formattedValue"
-    type="tel"
+    inputmode="numeric"
     @input="onInput($event)"
     @focus="onFocus($event)"
   >
@@ -61,7 +61,7 @@ export default {
         this.$emit('update:value', value)
       }
     }
-    
+
   }
 }
 </script>
