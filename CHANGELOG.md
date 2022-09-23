@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.5](https://github.com/igortrinidad/vue-number-format/compare/v1.5.4...v1.5.5) (2022-09-23)
+
+
+### Refactor
+
+* set inputmode and remove type tel ([c03ab0e](https://github.com/igortrinidad/vue-number-format/commit/c03ab0e67c5f9dc5a0feb9bfc250c300ef6d47e5))
+
 ### [1.5.4](https://github.com/igortrinidad/vue-number-format/compare/v1.5.3...v1.5.4) (2022-09-20)
 
 
