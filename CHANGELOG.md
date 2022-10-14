@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.6](https://github.com/igortrinidad/vue-number-format/compare/v1.5.5...v1.5.6) (2022-10-14)
+
+
+### Bug Fixes
+
+* Fix invalid props type validation for old vue versions ([2f06703](https://github.com/igortrinidad/vue-number-format/commit/2f06703957250253abc810cfe5c50eff4c6e3b5b))
+
 ### [1.5.5](https://github.com/igortrinidad/vue-number-format/compare/v1.5.4...v1.5.5) (2022-09-23)
 
 

@@ -223,7 +223,7 @@ exports.default = (sfc, props) => {
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/vue-loader-v16/dist??ref--1-1!./src/vue-number-format.vue?vue&type=template&id=0224e148
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/vue-loader-v16/dist??ref--1-1!./src/vue-number-format.vue?vue&type=template&id=95b89e2c
 
 const _hoisted_1 = ["value"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -234,7 +234,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onFocus: _cache[1] || (_cache[1] = $event => $options.onFocus($event))
   }, null, 40, _hoisted_1);
 }
-// CONCATENATED MODULE: ./src/vue-number-format.vue?vue&type=template&id=0224e148
+// CONCATENATED MODULE: ./src/vue-number-format.vue?vue&type=template&id=95b89e2c
 
 // EXTERNAL MODULE: ./src/utils.js
 var utils = __webpack_require__("025e");
@@ -249,8 +249,8 @@ var defaultOptions = __webpack_require__("ffd9");
   name: 'VueNumberFormat',
   props: {
     value: {
-      type: [String, Number, null],
-      required: true
+      type: [String, Number],
+      default: null
     },
     options: {
       type: Object,
