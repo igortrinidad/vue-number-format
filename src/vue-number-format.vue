@@ -16,8 +16,8 @@ export default {
   name: 'VueNumberFormat',
   props: {
     value: {
-      type: [String, Number, null],
-      required: true
+      type: [String, Number],
+      default: null
     },
     options: {
       type: Object,
