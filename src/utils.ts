@@ -2,7 +2,7 @@
  * igortrinidad/vue-number-format
  *
  * (c) Igor Trindade <igortrindade.me@gmail.com>
- * 
+ *
  * Mostly of this file content was extracted from the v-money library https://github.com/vuejs-tips/v-money
  *
  * For the full copyright and license information, please view the LICENSE
