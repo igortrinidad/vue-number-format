@@ -9,46 +9,43 @@
  * file that was distributed with this source code.
  */
 
-import defaultOptions from './defaultOptions'
+import { type VueNumberFormatOptions } from './types/FormatOptions'
 
-export const format = (input = 0, opt = defaultOptions) => {
-  if(input === null) input = 0
-  const mergedOptions = Object.assign({}, defaultOptions, opt)
-  if (typeof input === 'number' && !mergedOptions.isInteger) {
-    input = input.toFixed(fixed(mergedOptions.precision))
-  }
-  const negative = isNegative(input, mergedOptions.acceptNegative)  ? '-' : ''
-  const numbers = onlyNumbers(input)
-  const currency = numbersToCurrency(numbers, mergedOptions.precision)
-  const parts = toStr(currency).split('.')
-  var integer = parts[0]
-  const decimal = parts[1]
-  integer = addThousandSeparator(integer, mergedOptions.thousand)
-  return negative + mergedOptions.prefix + joinIntegerAndDecimal(integer, decimal, mergedOptions.decimal) + mergedOptions.suffix
+// TODO: validate all type of input
+export const format = (input: string, opt: VueNumberFormatOptions) => {
+  const minusSymbol = isNegative(input, opt.acceptNegative)  ? '-' : ''
+  const numbers = stringOnlyNumbers(input)
+  const currencyInString = numbersToCurrency(numbers, opt.precision)
+
+  const currencyParts = currencyInString.split('.')
+  const decimal = currencyParts[1]
+  const integer = addThousandSeparator(currencyParts[0], opt.thousand)
+
+  return minusSymbol + opt.prefix + joinIntegerAndDecimal(integer, decimal, opt.decimal) + opt.suffix
 }
 
-export const unformat = (input = 0, opt = { precision: 2, isInteger: false, acceptNegative: true}) => {
-  if(input === null) input = 0
-  const mergedOptions = Object.assign({}, defaultOptions, opt)
-  var negative = (isNegative(input, mergedOptions.acceptNegative)) ? -1 : 1
-  var numbers = onlyNumbers(input)
-  var currency = numbersToCurrency(numbers, mergedOptions.precision)
-  if(mergedOptions.isInteger) {
-    return parseInt(`${isNegative(input, mergedOptions.acceptNegative) ? '-' : ''}${numbers.toString()}`)
+export const unformat = (input: string, opt: VueNumberFormatOptions) => {
+  const numbers = stringOnlyNumbers(input)
+  if(opt.isInteger) {
+    return parseInt(`${isNegative(input, opt.acceptNegative) ? '-' : ''}${numbers.toString()}`)
   }
-  return parseFloat(currency) * negative
+
+  const makeNumberNegative = (isNegative(input, opt.acceptNegative))
+  const currency = numbersToCurrency(numbers, opt.precision)
+  return makeNumberNegative ? parseFloat(currency) * - 1 : parseFloat(currency)
 }
 
-export const setCursor = (el, position) => {
-  var setSelectionRange = function () { el.setSelectionRange(position, position) }
+export const setCursor = (el: HTMLInputElement, position: any) => {
   if (el === document.activeElement) {
-    setTimeout(setSelectionRange, 1)
+    setTimeout(() => {
+      el.setSelectionRange(position, position);
+    }, 1)
   }
 }
 
 
-export const setCursorPosition = (el, opt = defaultOptions) => {
-  var positionFromEnd = el.value.length - el.selectionEnd
+export const setCursorPosition = (el: any, opt: VueNumberFormatOptions) => {
+  let positionFromEnd = el.value.length - el.selectionEnd
   el.value = format(el.value, opt)
   positionFromEnd = Math.max(positionFromEnd, opt.suffix.length)
   positionFromEnd = el.value.length - positionFromEnd
@@ -57,37 +54,39 @@ export const setCursorPosition = (el, opt = defaultOptions) => {
 }
 
 
-function onlyNumbers (input) {
-  return toStr(input).replace(/\D+/g, '') || '0'
+function stringOnlyNumbers (input: string) {
+  return input.toString().replace(/\D+/g, '') || '0'
 }
 
 // 123 RangeError: toFixed() digits argument must be between 0 and 20 at Number.toFixed
-function fixed (precision) {
+function fixed (precision: number) {
   return Math.max(0, Math.min(precision, 20))
 }
 
-function numbersToCurrency (numbers, precision) {
-  var exp = Math.pow(10, precision)
-  var float = parseFloat(numbers) / exp
+function numbersToCurrency (numbers: string, precision: number) {
+  const exp = Math.pow(10, precision)
+  const float = parseFloat(numbers) / exp
   return float.toFixed(fixed(precision))
 }
 
-function addThousandSeparator (integer, separator) {
+function addThousandSeparator (integer: string, separator: string) {
   return integer.replace(/(\d)(?=(?:\d{3})+\b)/gm, `$1${separator}`)
 }
 
-function joinIntegerAndDecimal (integer, decimal, separator) {
-  return decimal ? integer + separator + decimal : integer
+function joinIntegerAndDecimal (integer: string, decimal: string, separator: string) {
+  if (decimal) {
+    return integer + separator + decimal;
+  }
+
+  return integer;
 }
 
-function toStr (value) {
-  return value ? value.toString() : ''
-}
-
-function isNegative(string, acceptNegative = true) {
+function isNegative(string: number | string, acceptNegative = true) {
   if(!acceptNegative) return false
-  if (typeof string != 'string') string = string.toString()
-  const forcePositive = string.indexOf('+') >= 0
-  const isNegative = (string !== 0 && string.indexOf('-') >= 0 || string[string.length-1] == '-') ? true : false
-  return (!forcePositive && isNegative) ? true : false
+
+  const value = string.toString();
+  const isNegative = (value.startsWith('-') || value.endsWith('-'))
+  const forcePositive = value.indexOf('+')
+
+  return isNegative && !forcePositive
 }
