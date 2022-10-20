@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/igortrinidad/vue-number-format/compare/v1.5.6...v1.6.0) (2022-10-20)
+
+
+### Features
+
+* Add format and unformat on export default to be used outside vue context ([cae0e81](https://github.com/igortrinidad/vue-number-format/commit/cae0e81cc3991d6e01bed07ffe6fb53d26495c0d))
+
 ### [1.5.6](https://github.com/igortrinidad/vue-number-format/compare/v1.5.5...v1.5.6) (2022-10-14)
 
 

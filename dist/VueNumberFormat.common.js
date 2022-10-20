@@ -368,8 +368,11 @@ const install = (Vue, options) => {
   });
 };
 
+console.log(_utils__WEBPACK_IMPORTED_MODULE_2__[/* format */ "a"]);
 Object.assign(_vue_number_format_vue__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"], {
-  install: install
+  install: install,
+  format: _utils__WEBPACK_IMPORTED_MODULE_2__[/* format */ "a"],
+  unformat: _utils__WEBPACK_IMPORTED_MODULE_2__[/* unformat */ "d"]
 }); // Auto-install when vue is found (eg. in browser via <script> tag)
 
 let GlobalVue = null;
