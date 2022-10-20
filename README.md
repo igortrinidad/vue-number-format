@@ -1,5 +1,5 @@
 # vue-number-format
- 
+
 A lightweight flexible Vue.js 2 and 3 component to display and input formatted numbers and currencies
 
 <p align="center">
@@ -132,5 +132,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - v.1.3.0
   - Added support to Nuxt 3
-  
-  
+
+
