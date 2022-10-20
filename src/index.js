@@ -38,8 +38,9 @@ const install = (Vue, options) => {
 
 }
 
-Object.assign(VueNumberFormat, {install: install})
+console.log(format)
 
+Object.assign(VueNumberFormat, { install: install, format, unformat })
 
 // Auto-install when vue is found (eg. in browser via <script> tag)
 let GlobalVue = null;
