@@ -8,3 +8,11 @@ export default {
     app.provide('VueNumberFormatOptions', Object.assign(defaultOptions, options))
   }
 }
+
+export type {
+  VueNumberFormatOptions,
+};
+
+export {
+  VueNumberFormat,
+};
