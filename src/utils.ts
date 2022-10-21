@@ -9,29 +9,35 @@
  * file that was distributed with this source code.
  */
 
-import { type VueNumberFormatOptions } from './types/FormatOptions'
+import defaultOptions, { type VueNumberFormatOptions } from './types/FormatOptions'
 
 // TODO: validate all type of input
-export const format = (input: string, opt: VueNumberFormatOptions) => {
-  const minusSymbol = isNegative(input, opt.acceptNegative)  ? '-' : ''
-  const numbers = stringOnlyNumbers(input)
-  const currencyInString = numbersToCurrency(numbers, opt.precision)
+export const format = (input: string | number, opt: Partial<VueNumberFormatOptions> = {}) => {
+  const mergedOptions = Object.assign(defaultOptions, opt);
+
+  const inputInString = input.toString();
+  const minusSymbol = isNegative(inputInString, mergedOptions.acceptNegative)  ? '-' : ''
+  const numbers = stringOnlyNumbers(inputInString.toString())
+  const currencyInString = numbersToCurrency(numbers, mergedOptions.precision)
 
   const currencyParts = currencyInString.split('.')
   const decimal = currencyParts[1]
-  const integer = addThousandSeparator(currencyParts[0], opt.thousand)
+  const integer = addThousandSeparator(currencyParts[0], mergedOptions.thousand)
 
-  return minusSymbol + opt.prefix + joinIntegerAndDecimal(integer, decimal, opt.decimal) + opt.suffix
+  return minusSymbol + opt.prefix + joinIntegerAndDecimal(integer, decimal, mergedOptions.decimal) + mergedOptions.suffix
 }
 
-export const unformat = (input: string, opt: VueNumberFormatOptions) => {
+export const unformat = (input: string, opt: Partial<VueNumberFormatOptions> = {}) => {
+  const mergedOptions = Object.assign(opt, defaultOptions);
+
   const numbers = stringOnlyNumbers(input)
-  if(opt.isInteger) {
-    return parseInt(`${isNegative(input, opt.acceptNegative) ? '-' : ''}${numbers.toString()}`)
+
+  if(mergedOptions.isInteger) {
+    return parseInt(`${isNegative(input, mergedOptions.acceptNegative) ? '-' : ''}${numbers.toString()}`)
   }
 
-  const makeNumberNegative = (isNegative(input, opt.acceptNegative))
-  const currency = numbersToCurrency(numbers, opt.precision)
+  const makeNumberNegative = (isNegative(input, mergedOptions.acceptNegative))
+  const currency = numbersToCurrency(numbers, mergedOptions.precision)
   return makeNumberNegative ? parseFloat(currency) * - 1 : parseFloat(currency)
 }
 
@@ -44,12 +50,14 @@ export const setCursor = (el: HTMLInputElement, position: any) => {
 }
 
 
-export const setCursorPosition = (el: any, opt: VueNumberFormatOptions) => {
+export const setCursorPosition = (el: any, opt: Partial<VueNumberFormatOptions>) => {
+  const mergedOptions = Object.assign(opt, defaultOptions);
+
   let positionFromEnd = el.value.length - el.selectionEnd
-  el.value = format(el.value, opt)
-  positionFromEnd = Math.max(positionFromEnd, opt.suffix.length)
+  el.value = format(el.value, mergedOptions)
+  positionFromEnd = Math.max(positionFromEnd, mergedOptions.suffix.length)
   positionFromEnd = el.value.length - positionFromEnd
-  positionFromEnd = Math.max(positionFromEnd, opt.prefix.length + 1)
+  positionFromEnd = Math.max(positionFromEnd, mergedOptions.prefix.length + 1)
   setCursor(el, positionFromEnd)
 }
 
