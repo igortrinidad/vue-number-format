@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest';
 import { format, unformat } from '../../src/utils'
 
 test('it should format a given number to US$ currency format', () => {
