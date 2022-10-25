@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { format, unformat } from '../../src/utils'
+import { format, unformat } from '@/utils'
 
 test('it should format a given number to US$ currency format', () => {
   expect(format(275, {prefix: 'US$ '})).toBe('US$ 275,00');
