@@ -9,34 +9,47 @@
  * file that was distributed with this source code.
  */
 
-import defaultOptions, { type VueNumberFormatOptions } from './types/FormatOptions'
+import defaultOptions, { type VueNumberFormatOptions } from '@/types/FormatOptions'
 
 // TODO: validate all type of input
-export const format = (input: string | number, opt: Partial<VueNumberFormatOptions> = {}) => {
-  const mergedOptions = Object.assign(defaultOptions, opt);
+export const format = (input: string | number | null = '0', opt: Partial<VueNumberFormatOptions> = {}) => {
+  const mergedOptions = {...defaultOptions, ...opt};
 
-  const inputInString = input.toString();
+  let inputInString;
+
+  if (!!input) {
+    if (typeof input === 'number' && !mergedOptions.isInteger) {
+      inputInString = input.toFixed(fixed(mergedOptions.precision))
+    } else {
+      inputInString = input.toString()
+    }
+  } else {
+    inputInString = ''
+  }
+
   const minusSymbol = isNegative(inputInString, mergedOptions.acceptNegative)  ? '-' : ''
-  const numbers = stringOnlyNumbers(inputInString.toString())
+  const numbers = inputOnlyNumbers(inputInString.toString())
   const currencyInString = numbersToCurrency(numbers, mergedOptions.precision)
 
   const currencyParts = currencyInString.split('.')
   const decimal = currencyParts[1]
   const integer = addThousandSeparator(currencyParts[0], mergedOptions.thousand)
 
-  return minusSymbol + opt.prefix + joinIntegerAndDecimal(integer, decimal, mergedOptions.decimal) + mergedOptions.suffix
+  return minusSymbol + mergedOptions.prefix + joinIntegerAndDecimal(integer, decimal, mergedOptions.decimal) + mergedOptions.suffix
 }
 
-export const unformat = (input: string, opt: Partial<VueNumberFormatOptions> = {}) => {
-  const mergedOptions = Object.assign(opt, defaultOptions);
+export const unformat = (input: string | number | null = 0, opt: Partial<VueNumberFormatOptions> = {}) => {
+  const mergedOptions = Object.assign({}, defaultOptions, opt);
 
-  const numbers = stringOnlyNumbers(input)
+  const userInput = input || 0;
+
+  const numbers = inputOnlyNumbers(userInput)
 
   if(mergedOptions.isInteger) {
-    return parseInt(`${isNegative(input, mergedOptions.acceptNegative) ? '-' : ''}${numbers.toString()}`)
+    return parseInt(`${isNegative(userInput, mergedOptions.acceptNegative) ? '-' : ''}${numbers.toString()}`)
   }
 
-  const makeNumberNegative = (isNegative(input, mergedOptions.acceptNegative))
+  const makeNumberNegative = (isNegative(userInput, mergedOptions.acceptNegative))
   const currency = numbersToCurrency(numbers, mergedOptions.precision)
   return makeNumberNegative ? parseFloat(currency) * - 1 : parseFloat(currency)
 }
@@ -51,7 +64,7 @@ export const setCursor = (el: HTMLInputElement, position: any) => {
 
 
 export const setCursorPosition = (el: any, opt: Partial<VueNumberFormatOptions>) => {
-  const mergedOptions = Object.assign(opt, defaultOptions);
+  const mergedOptions = Object.assign({}, defaultOptions, opt);
 
   let positionFromEnd = el.value.length - el.selectionEnd
   el.value = format(el.value, mergedOptions)
@@ -62,8 +75,8 @@ export const setCursorPosition = (el: any, opt: Partial<VueNumberFormatOptions>)
 }
 
 
-function stringOnlyNumbers (input: string) {
-  return input.toString().replace(/\D+/g, '') || '0'
+function inputOnlyNumbers (input: string | number = 0) {
+  return input ? input.toString().replace(/\D+/g, '') : '0'
 }
 
 // 123 RangeError: toFixed() digits argument must be between 0 and 20 at Number.toFixed
