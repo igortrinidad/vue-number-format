@@ -14,7 +14,8 @@
     "preview": "vite preview",
     "build:docs": "cd example/docs && npm ci && npm run build",
     "release": "standard-version -a",
-    "test": "vitest"
+    "test": "vitest",
+    "test:coverage": "vitest --coverage"
   },
   "author": "Igor Trindade",
   "license": "MIT",
@@ -26,6 +27,8 @@
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
     "@vitejs/plugin-vue": "^3.1.0",
+    "@vitest/coverage-c8": "^0.24.3",
+    "@vitest/ui": "^0.24.3",
     "@vue/compiler-sfc": "^3.2.39",
     "@vue/eslint-config-typescript": "^11.0.1",
     "@vue/test-utils": "^2.0.0-0",
